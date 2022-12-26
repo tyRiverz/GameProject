@@ -23,7 +23,6 @@ ana karakter kız, yan karakter evcil hayvan olabilir
 evcil hayvan geliştirilebilir ya da yeni evcil hayvan eklenebilir
 evcil haycan geliştirmesinde altın toplama çapı genişleyebilir, koşu hızı artabilir
 
-oynanış: sağ sol tuşları z rotasyona etki edecek(örn: phobia 2)
 ---------------------------------------------------------
 
 
