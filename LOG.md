@@ -31,3 +31,6 @@ hi-score
 renkli
 düşman dalgalarına karşı savunma
 top down pixel art
+
+KAYNAKLAR
+https://www.youtube.com/watch?v=KjvvRmG7PBM

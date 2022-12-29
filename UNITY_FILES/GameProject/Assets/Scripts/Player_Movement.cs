@@ -13,15 +13,19 @@ public class Player_Movement : MonoBehaviour
   
     private void FixedUpdate()
     {
+        // Yatay ve dikey giriþleri alýr
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
 
+        // Giriþler vektöre dönüþtürülür, büyüklüðü hesaplanýr, normalize edilir
         movement = new Vector2(horizontalInput, verticalInput);
         float inputMagnitude = Mathf.Clamp01(movement.magnitude);                
         movement.Normalize();
 
+        // Objeye hazýrlanan vektör kadar hareket kazandýrýlýr
         transform.Translate(movement * moveSpeed * inputMagnitude * Time.fixedDeltaTime,Space.World);
 
+        // Objenin hareket ettiði yöne doðru bakmasý saðlanýr
         if(movement != Vector2.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, movement);

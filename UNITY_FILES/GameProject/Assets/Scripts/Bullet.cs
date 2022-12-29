@@ -6,11 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public GameObject hitEffect;
     public int damage = 40;
-    //void OnCollisionEnter2D(Collision2D collision)
-    //{        
-        
-    //}
-
+   
     void OnBecameInvisible()
     {
         Destroy(gameObject);
@@ -18,6 +14,7 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
+        // Merminin çarptýðý obje kontrol edilir, eðer düþmansa düþman hasar alýr
         Enemy enemy = hitInfo.GetComponent<Enemy>();
         if (hitInfo.name != "Player")
         {
