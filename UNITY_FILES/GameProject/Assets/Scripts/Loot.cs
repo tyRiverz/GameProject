@@ -15,4 +15,5 @@ public class Loot : ScriptableObject
         this.dropChance = dropChance;
         
     }
+
 }

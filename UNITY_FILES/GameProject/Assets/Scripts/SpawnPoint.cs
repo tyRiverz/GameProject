@@ -48,6 +48,6 @@ public class SpawnPoint : MonoBehaviour
         // Düþman objesi üretilir
         GameObject a = Instantiate(enemy) as GameObject;
         // Üretilen düþmanýn pozisyonu kameranýn gördüðü sýnýrlar içerisinden rastgele bir noktada seçilir
-        a.transform.position = new Vector3(cam.transform.position.x + Random.Range(-width, width), 3, cam.transform.position.z + height + Random.Range(10, 30));        
+        a.transform.position = new Vector3(cam.transform.position.x + Random.Range(-width, width), cam.transform.position.y + height + Random.Range(-height, height), 0);     
     }
 }

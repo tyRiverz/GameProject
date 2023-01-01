@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 0}
+  target: {fileID: 8719145810293831021, guid: 4ae3028cb75d8a847bcddb0a6fcf0a7e, type: 3}
 --- !u!114 &7784393157433859030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e0b3ef9aab7504eb4616fc844598c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  droppeditemPrefab: {fileID: 4930363955087670830, guid: 9dda059489b3dc3459a4189b43c00714, type: 3}
+  droppeditemPrefab: {fileID: 4349759547041775279, guid: 9dda059489b3dc3459a4189b43c00714, type: 3}
   lootList:
   - {fileID: 11400000, guid: cfb6ea6603942ef47b4c0abad270684a, type: 2}
   - {fileID: 11400000, guid: 8d88827354dd454499b5bb1db91fb914, type: 2}
