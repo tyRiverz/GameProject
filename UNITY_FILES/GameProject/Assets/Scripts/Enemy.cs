@@ -5,10 +5,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    public int health = 100;
-    
+    public int health = 100;    
     public GameObject deathEffect;
+    private ScoreManager sm;
 
+    public void Start()
+    {
+        sm = GameObject.Find("Canvas").GetComponent<ScoreManager>();
+    }
     public void TakeDamage(int damage)
     {
         // Düþman hasar alýr caný biterse ölür
@@ -24,6 +28,7 @@ public class Enemy : MonoBehaviour
     {
         GetComponent<LootBag>().InstantiateLoot(transform.position);
         //Instantiate(deathEffect, transform.position, Quaternion.identity);
+        sm.score += 100f;
         Destroy(gameObject);    
     }
 }
