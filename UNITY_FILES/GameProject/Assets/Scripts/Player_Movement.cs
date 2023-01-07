@@ -10,7 +10,40 @@ public class Player_Movement : MonoBehaviour
     Vector2 movement;
     public float horizontalInput = 0f;
     public float verticalInput = 0f;
-  
+
+    public int maxHealth = 100;
+    public int currentHealth;
+    public int receivedDamage = 10;
+    public float hitForce = 10f;
+
+    public HealthBar healthBar;
+
+    void Start()
+    {
+        currentHealth = maxHealth;
+        healthBar.setMaxHealth(maxHealth);
+    }
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            TakeDamage(receivedDamage);
+
+            Vector2 direction = (rb.position - (Vector2)GameObject.FindWithTag("Enemy").transform.position).normalized;
+            Vector2 force = direction * hitForce * Time.deltaTime;
+            Debug.Log(direction);
+            rb.AddForce(force,ForceMode2D.Impulse);
+
+            healthBar.SetHealth(receivedDamage);
+        }
+    }
+
     private void FixedUpdate()
     {
         // Yatay ve dikey giriþleri alýr
