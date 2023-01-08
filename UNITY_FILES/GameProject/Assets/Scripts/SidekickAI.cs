@@ -20,14 +20,21 @@ public class SidekickAI : MonoBehaviour
 
     Seeker seeker;
     Rigidbody2D rb;
-    
+
+    public int receivedDamage = 10;
+    public float hitForce = 10f;
+    public int maxHealth = 100;
+    public int currentHealth;
+    public HealthBar healthBar;
 
     // Start is called before the first frame update
     void Start()
     {
         Camera cam = Camera.main;
         cameraHeight = (cam.orthographicSize+1)*.80f;
-        
+
+        currentHealth = maxHealth;
+        healthBar.setMaxHealth(maxHealth);
 
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -99,6 +106,26 @@ public class SidekickAI : MonoBehaviour
             return;
         }
 
+    }
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            TakeDamage(receivedDamage);
+
+            Vector2 direction = (rb.position - (Vector2)GameObject.FindWithTag("Enemy").transform.position).normalized;
+            Vector2 force = direction * hitForce * Time.deltaTime;
+
+            rb.AddForce(force, ForceMode2D.Impulse);
+
+            healthBar.SetHealth(receivedDamage);
+        }
     }
 
 

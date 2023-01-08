@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
-    public int health = 100;    
+   
     public GameObject deathEffect;
     private ScoreManager sm;
 
+    public HealthBar healthBar;
+    public int maxHealth = 100;
+    public int currentHealth;
+
     public void Start()
     {
+        currentHealth = maxHealth;
+        healthBar.setMaxHealth(maxHealth);
         sm = GameObject.Find("Canvas").GetComponent<ScoreManager>();
     }
     public void TakeDamage(int damage)
     {
         // Düþman hasar alýr caný biterse ölür
-        health -= damage;
+        currentHealth -= damage;
+        healthBar.SetHealth(damage);
 
-        if(health <= 0)
+        if (currentHealth <= 0)
         {
             Die();
         }

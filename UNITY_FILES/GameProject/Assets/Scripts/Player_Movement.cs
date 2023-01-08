@@ -37,7 +37,7 @@ public class Player_Movement : MonoBehaviour
 
             Vector2 direction = (rb.position - (Vector2)GameObject.FindWithTag("Enemy").transform.position).normalized;
             Vector2 force = direction * hitForce * Time.deltaTime;
-            Debug.Log(direction);
+            
             rb.AddForce(force,ForceMode2D.Impulse);
 
             healthBar.SetHealth(receivedDamage);

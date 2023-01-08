@@ -126,6 +126,11 @@ MonoBehaviour:
   itemTarget: {fileID: 0}
   speed: 1000
   nextWaypointDistance: 1
+  receivedDamage: 10
+  hitForce: 10
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 0}
 --- !u!114 &6044055498121140894
 MonoBehaviour:
   m_ObjectHideFlags: 0
