@@ -7,6 +7,7 @@ public class SpawnPoint : MonoBehaviour
     private int waveNumber = 0;
     public int enemiesAmount = 0;
     public GameObject enemy;
+    public List<GameObject> enemies = new List<GameObject>();
     public Camera cam;
     float height = 0f;
     float width = 0f;
@@ -33,21 +34,42 @@ public class SpawnPoint : MonoBehaviour
         if (enemiesAmount == 0)
         {
             waveNumber++;
-            for (int i = 0; i < waveNumber; i++)
+
+            if (waveNumber % 5 == 0)
             {
-                
-                SpawnEnemy();
-                
+                SpawnBoss();
             }
+            else
+            {
+                for (int i = 0; i < waveNumber; i++)
+                {
+                    SpawnEnemy();
+                }
+            }
+
         }
-        
+
     }
 
     void SpawnEnemy()
     {
+
         // Düþman objesi üretilir
-        GameObject a = Instantiate(enemy) as GameObject;
+        //GameObject a = Instantiate(enemy) as GameObject;        
+
+        int enemyNumber = Random.Range(0, enemies.Count - 1);
+        GameObject a = Instantiate(enemies[enemyNumber]) as GameObject;
+
         // Üretilen düþmanýn pozisyonu kameranýn gördüðü sýnýrlar içerisinden rastgele bir noktada seçilir
-        a.transform.position = new Vector3(cam.transform.position.x + Random.Range(-width, width), cam.transform.position.y + height + Random.Range(-height, height), 0);     
+        a.transform.position = new Vector3(cam.transform.position.x + Random.Range(-width, width), cam.transform.position.y + height + Random.Range(-height, height), 0);
+
+    }
+
+    void SpawnBoss()
+    {
+        GameObject a = Instantiate(enemies[3]) as GameObject;
+
+        // Üretilen düþmanýn pozisyonu kameranýn gördüðü sýnýrlar içerisinden rastgele bir noktada seçilir
+        a.transform.position = new Vector3(cam.transform.position.x + Random.Range(-width, width), cam.transform.position.y + height + Random.Range(-height, height), 0);
     }
 }
