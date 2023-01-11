@@ -608,3 +608,4 @@ MonoBehaviour:
   lootList:
   - {fileID: 11400000, guid: cfb6ea6603942ef47b4c0abad270684a, type: 2}
   - {fileID: 11400000, guid: 8d88827354dd454499b5bb1db91fb914, type: 2}
+  - {fileID: 11400000, guid: 5efcc9b422f71d047871f4a7fd67043a, type: 2}

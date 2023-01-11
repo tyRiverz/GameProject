@@ -27,6 +27,10 @@ public class SidekickAI : MonoBehaviour
     public int currentHealth;
     public HealthBar healthBar;
 
+    public bool ShieldActive = false;
+    Coroutine coroutine = null;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -110,7 +114,44 @@ public class SidekickAI : MonoBehaviour
 
     void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        if(ShieldActive == false)
+        {
+            currentHealth -= damage;
+            healthBar.SetHealth(receivedDamage);
+        }
+        
+    }
+
+    public void ShieldCountdown(float time)
+    {
+        // Belirli süre kalkaný aç
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+
+        }
+        coroutine = StartCoroutine(ExecuteAfterTime(time));
+
+    }
+
+    IEnumerator ExecuteAfterTime(float time)
+    {
+        // Kalkanýn geri sayým kodu
+        yield return new WaitForSeconds(time);
+
+        ShieldActive = false;
+        Debug.Log("Sidekick Shield deactivated");
+    }
+
+    public void TakeHp(int Hp)
+    {
+        currentHealth += Hp;
+        healthBar.IncreaseHealth(Hp);
+        
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -124,7 +165,7 @@ public class SidekickAI : MonoBehaviour
 
             rb.AddForce(force, ForceMode2D.Impulse);
 
-            healthBar.SetHealth(receivedDamage);
+            
         }
     }
 

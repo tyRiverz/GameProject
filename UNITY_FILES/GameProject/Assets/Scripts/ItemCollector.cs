@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class ItemCollector : MonoBehaviour
 {
-    public int item1Count = 0;
-    public int item2Count = 0;
+    public int ItemGear = 0;
+    public int ItemHp = 0;
+    //public int ItemShield = 0;
     private ScoreManager sm;
+    private Player_Movement p_movement;
+    private SidekickAI sidekick;
 
     public void Start()
     {
-     sm = GameObject.Find("Canvas").GetComponent<ScoreManager>();   
+        sm = GameObject.Find("Canvas").GetComponent<ScoreManager>();
+        p_movement = GameObject.Find("Player").GetComponent<Player_Movement>();
+        sidekick = GameObject.Find("Sidekick").GetComponent<SidekickAI>();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -19,16 +24,29 @@ public class ItemCollector : MonoBehaviour
         {
 
             string lootName = collision.gameObject.name;
-            
-            if (lootName.Contains("item1"))
+
+            if (lootName.Contains("ItemGear"))
             {
-                item1Count++;
-                sm.countitem1 += 1f;
+                ItemGear++;
+                sm.countGear += 1f;
             }
-            else if (lootName.Contains("item2"))
+            else if (lootName.Contains("ItemHp"))
             {
-                item2Count++;
-                sm.countitem2 += 1f;
+                ItemHp++;
+                int hp = Random.Range(20, 40);
+                p_movement.TakeHp(hp);
+                sidekick.TakeHp(hp);
+                //item2Count++;
+                //sm.countitem2 += 1f;
+            }
+            else if (lootName.Contains("ItemShield"))
+            {
+                p_movement.ShieldActive = true;
+                sidekick.ShieldActive = true;
+                Debug.Log("Player Shield activated");
+                Debug.Log("Sidekick Shield activated");
+                p_movement.ShieldCountdown(10);
+                sidekick.ShieldCountdown(10);
             }
 
             Destroy(collision.gameObject);
