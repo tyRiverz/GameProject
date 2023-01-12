@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public GameObject hitEffect;
     public int damage = 40;
-   
+
     void OnBecameInvisible()
     {
         Destroy(gameObject);
@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
     {
         // Merminin çarptýðý obje kontrol edilir, eðer düþmansa düþman hasar alýr
         Enemy enemy = hitInfo.GetComponent<Enemy>();
-        if (hitInfo.name != "Player")
+        if (hitInfo.name != "Player" && hitInfo.name != "Sidekick")
         {
             if (enemy != null)
             {
@@ -27,6 +27,6 @@ public class Bullet : MonoBehaviour
             //Destroy(hitEffect); 
             Destroy(gameObject);
         }
-                   
+
     }
 }

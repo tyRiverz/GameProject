@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class ItemCollector : MonoBehaviour
 {
-    public int ItemGear = 0;
-    public int ItemHp = 0;
-    //public int ItemShield = 0;
+    public int ItemGear = 0;    
     private ScoreManager sm;
     private Player_Movement p_movement;
     private SidekickAI sidekick;
@@ -31,13 +29,11 @@ public class ItemCollector : MonoBehaviour
                 sm.countGear += 1f;
             }
             else if (lootName.Contains("ItemHp"))
-            {
-                ItemHp++;
+            {                
                 int hp = Random.Range(20, 40);
                 p_movement.TakeHp(hp);
                 sidekick.TakeHp(hp);
-                //item2Count++;
-                //sm.countitem2 += 1f;
+                
             }
             else if (lootName.Contains("ItemShield"))
             {
