@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-   
+
     public GameObject deathEffect;
     private ScoreManager sm;
 
     public HealthBar healthBar;
     public int maxHealth = 100;
     public int currentHealth;
+
+    private UpgradeMenu um;
 
     public void Start()
     {
@@ -35,6 +37,18 @@ public class Enemy : MonoBehaviour
         GetComponent<LootBag>().InstantiateLoot(transform.position);
         //Instantiate(deathEffect, transform.position, Quaternion.identity);
         sm.score += 100f;
-        Destroy(gameObject);    
+
+        if (gameObject.name == "EnemyBoss")
+        {
+            Destroy(gameObject);
+
+            um = GameObject.Find("Canvas").GetComponent<UpgradeMenu>();
+            UpgradeMenu.GameIsPaused = true;
+            um.UpgradeMenuUI.SetActive(true);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
