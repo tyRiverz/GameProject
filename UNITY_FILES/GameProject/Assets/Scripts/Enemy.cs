@@ -38,8 +38,10 @@ public class Enemy : MonoBehaviour
         //Instantiate(deathEffect, transform.position, Quaternion.identity);
         sm.score += 100f;
 
-        if (gameObject.name == "EnemyBoss")
-        {
+        //Debug.Log(gameObject.name);
+
+        if (gameObject.name.Contains("EnemyBoss"))
+        {            
             Destroy(gameObject);
 
             um = GameObject.Find("Canvas").GetComponent<UpgradeMenu>();

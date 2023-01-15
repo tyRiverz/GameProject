@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public GameObject hitEffect;
-    public int damage = 40;
+    public static int damage = 40;
 
     void OnBecameInvisible()
     {
