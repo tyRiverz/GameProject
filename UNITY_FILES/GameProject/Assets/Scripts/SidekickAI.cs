@@ -140,7 +140,7 @@ public class SidekickAI : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         ShieldActive = false;
-        Debug.Log("Sidekick Shield deactivated");
+        //Debug.Log("Sidekick Shield deactivated");
     }
 
     public void TakeHp(int Hp)

@@ -10,15 +10,15 @@ public class UpgradeMenu : MonoBehaviour
     public GameObject UpgradeMenuUI;
     private int PowerLevel = 1;
     private int SpeedLevel = 1;
-    private int TypeLevel = 1;
+    public static int TypeLevel = 1;
 
     private int maxPowerLevel = 3;
     private int maxSpeedLevel = 3;
     private int maxTypeLevel = 3;
 
-    private bool PowerMaxed = false;
-    private bool SpeedMaxed = false;
-    private bool TypeMaxed = false;
+    public static bool PowerMaxed = false;
+    public static bool SpeedMaxed = false;
+    public static bool TypeMaxed = false;
 
     public GameObject PowerButton;
     public GameObject SpeedButton;
@@ -124,7 +124,7 @@ public class UpgradeMenu : MonoBehaviour
     {
         if (TypeLevel != maxTypeLevel)
         {
-            // TODO Fire Point eklenecek
+            
             TextMeshProUGUI[] components = GameObject.Find("UpgradeTypeButton").GetComponentsInChildren<TextMeshProUGUI>(true);
             TypeLevel++;
             if (TypeLevel != maxTypeLevel)

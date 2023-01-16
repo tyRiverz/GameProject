@@ -41,12 +41,15 @@ public class Enemy : MonoBehaviour
         //Debug.Log(gameObject.name);
 
         if (gameObject.name.Contains("EnemyBoss"))
-        {            
+        {
             Destroy(gameObject);
 
             um = GameObject.Find("Canvas").GetComponent<UpgradeMenu>();
-            UpgradeMenu.GameIsPaused = true;
-            um.UpgradeMenuUI.SetActive(true);
+            if (!(UpgradeMenu.SpeedMaxed && UpgradeMenu.TypeMaxed && UpgradeMenu.PowerMaxed))
+            {
+                UpgradeMenu.GameIsPaused = true;
+                um.UpgradeMenuUI.SetActive(true);
+            }
         }
         else
         {

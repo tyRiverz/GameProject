@@ -39,8 +39,8 @@ public class ItemCollector : MonoBehaviour
             {
                 p_movement.ShieldActive = true;
                 sidekick.ShieldActive = true;
-                Debug.Log("Player Shield activated");
-                Debug.Log("Sidekick Shield activated");
+                //Debug.Log("Player Shield activated");
+                //Debug.Log("Sidekick Shield activated");
                 p_movement.ShieldCountdown(10);
                 sidekick.ShieldCountdown(10);
             }

@@ -3996,7 +3996,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 9095409052460851038}
+  m_Follow: {fileID: 6399972641271987831}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5
@@ -4520,7 +4520,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!1001 &2436981616914598682
+--- !u!1001 &4807231260105817710
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -4533,17 +4533,9 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8719145810293831009, guid: 4ae3028cb75d8a847bcddb0a6fcf0a7e, type: 3}
-      propertyPath: hitForce
-      value: 130
-      objectReference: {fileID: 0}
-    - target: {fileID: 8719145810293831009, guid: 4ae3028cb75d8a847bcddb0a6fcf0a7e, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1569373481}
-    - target: {fileID: 8719145810293831019, guid: 4ae3028cb75d8a847bcddb0a6fcf0a7e, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8719145810293831021, guid: 4ae3028cb75d8a847bcddb0a6fcf0a7e, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -4587,14 +4579,6 @@ PrefabInstance:
     - target: {fileID: 8719145810293831021, guid: 4ae3028cb75d8a847bcddb0a6fcf0a7e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8719145810293831023, guid: 4ae3028cb75d8a847bcddb0a6fcf0a7e, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8719145810293831023, guid: 4ae3028cb75d8a847bcddb0a6fcf0a7e, type: 3}
-      propertyPath: m_LinearDrag
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -4658,7 +4642,7 @@ PrefabInstance:
     - target: {fileID: 6044055498121140895, guid: 172827dff8136ea46a6235255a8e7386, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 9095409052460851038}
+      objectReference: {fileID: 6399972641271987831}
     - target: {fileID: 6044055498121140895, guid: 172827dff8136ea46a6235255a8e7386, type: 3}
       propertyPath: healthBar
       value: 
@@ -4666,8 +4650,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 172827dff8136ea46a6235255a8e7386, type: 3}
---- !u!4 &9095409052460851038 stripped
+--- !u!4 &6399972641271987831 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8719145810293831021, guid: 4ae3028cb75d8a847bcddb0a6fcf0a7e, type: 3}
-  m_PrefabInstance: {fileID: 2436981616914598682}
+  m_PrefabInstance: {fileID: 4807231260105817710}
   m_PrefabAsset: {fileID: 0}

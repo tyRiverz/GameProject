@@ -44,7 +44,7 @@ public class Player_Movement : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         ShieldActive = false;
-        Debug.Log("Player Shield deactivated");
+        //Debug.Log("Player Shield deactivated");
     }
 
 
@@ -61,7 +61,7 @@ public class Player_Movement : MonoBehaviour
     {
         currentHealth += Hp;
         healthBar.IncreaseHealth(Hp);
-        Debug.Log(Hp.ToString() + " taken");
+        //Debug.Log(Hp.ToString() + " taken");
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;

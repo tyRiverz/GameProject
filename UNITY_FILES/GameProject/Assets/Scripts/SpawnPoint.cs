@@ -61,7 +61,7 @@ public class SpawnPoint : MonoBehaviour
         GameObject a = Instantiate(enemies[enemyNumber]) as GameObject;
 
         // Üretilen düþmanýn pozisyonu kameranýn gördüðü sýnýrlar içerisinden rastgele bir noktada seçilir
-        a.transform.position = new Vector3(cam.transform.position.x + Random.Range(-width, width), cam.transform.position.y + height + Random.Range(-height, height), 0);
+        a.transform.position = new Vector3(cam.transform.position.x + Random.Range(-width, width), cam.transform.position.y + Random.Range(-height, height), 0);
 
     }
 
@@ -70,6 +70,6 @@ public class SpawnPoint : MonoBehaviour
         GameObject a = Instantiate(enemies[3]) as GameObject;
 
         // Üretilen düþmanýn pozisyonu kameranýn gördüðü sýnýrlar içerisinden rastgele bir noktada seçilir
-        a.transform.position = new Vector3(cam.transform.position.x + Random.Range(-width, width), cam.transform.position.y + height + Random.Range(-height, height), 0);
+        a.transform.position = new Vector3(cam.transform.position.x + Random.Range(-width, width), cam.transform.position.y + Random.Range(-height, height), 0);
     }
 }

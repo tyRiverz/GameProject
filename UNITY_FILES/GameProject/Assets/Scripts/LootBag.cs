@@ -32,7 +32,7 @@ public class LootBag : MonoBehaviour
             Loot droppedItem = possibleItems[Random.Range(0,possibleItems.Count)];
             return droppedItem;
         }
-        Debug.Log("no item dropped");
+        //Debug.Log("no item dropped");
         return null;
     }
 
