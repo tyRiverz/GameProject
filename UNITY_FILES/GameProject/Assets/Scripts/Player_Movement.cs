@@ -20,10 +20,13 @@ public class Player_Movement : MonoBehaviour
     public bool ShieldActive = false;
     Coroutine coroutine = null;
 
+    private DeathMenu dm;
+
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.setMaxHealth(maxHealth);
+        dm = GameObject.Find("Canvas").GetComponent<DeathMenu>();
     }
 
     public void ShieldCountdown(float time)
@@ -54,7 +57,18 @@ public class Player_Movement : MonoBehaviour
         {
             currentHealth -= damage;
             healthBar.SetHealth(receivedDamage);
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
         }
+    }
+
+    void Die()
+    {
+        DeathMenu.GameIsPaused = true;
+        dm.DeathMenuUI.SetActive(true);
+        //TODO DeathEffect animasyon eklenecek
     }
 
     public void TakeHp(int Hp)

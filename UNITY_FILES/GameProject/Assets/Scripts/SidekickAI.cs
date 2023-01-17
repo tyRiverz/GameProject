@@ -118,8 +118,16 @@ public class SidekickAI : MonoBehaviour
         {
             currentHealth -= damage;
             healthBar.SetHealth(receivedDamage);
-        }
-        
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+        }        
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 
     public void ShieldCountdown(float time)
