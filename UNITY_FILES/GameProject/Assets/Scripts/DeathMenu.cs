@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 public class DeathMenu : MonoBehaviour
 {
     public static bool GameIsPaused;
+    bool TryAgainClick = false;
     public GameObject DeathMenuUI;
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -23,19 +24,16 @@ public class DeathMenu : MonoBehaviour
         {
             Time.timeScale = 0f;
         }
-        //else
-        //{
-        //    if (DeathMenuUI.activeInHierarchy == true)
-        //    {
-        //        Time.timeScale = 1f;
-        //        SceneManager.LoadScene(0);
-        //    }
-
-        //}
+        if (TryAgainClick)
+        {
+            GameIsPaused = false;
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(0);
+        }
     }
 
     public void TryAgain()
     {
-        SceneManager.LoadScene(0);
+        TryAgainClick = true;       
     }
 }
