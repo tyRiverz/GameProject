@@ -19,17 +19,20 @@ public class Shooting : MonoBehaviour
 
     public static int BulletSpeed = 1000;
 
+    public static bool charBorn = false;
+
     // Update is called once per frame
     void Update()
     {
         // Saniyede bir ateþ edilecek þekilde zamanlama ayarlanýr
-
-        if (Time.time * BulletSpeed > nextFire)
+        if (charBorn)
         {
-            nextFire = (Time.time * BulletSpeed) + fireDelay; // delay the next fire by the fireDelay
-            Shoot();
-        }
-
+            if (Time.time * BulletSpeed > nextFire)
+            {
+                nextFire = (Time.time * BulletSpeed) + fireDelay; // delay the next fire by the fireDelay
+                Shoot();
+            }
+        }        
     }
 
     void Shoot()

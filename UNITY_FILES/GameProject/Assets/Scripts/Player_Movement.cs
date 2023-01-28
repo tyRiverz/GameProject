@@ -22,11 +22,16 @@ public class Player_Movement : MonoBehaviour
 
     private DeathMenu dm;
 
+    Material material;
+    bool isBorning = true;
+    float fade = 0f;
+
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.setMaxHealth(maxHealth);
         dm = GameObject.Find("Canvas").GetComponent<DeathMenu>();
+        material = GetComponent<SpriteRenderer>().material;
     }
 
     public void ShieldCountdown(float time)
@@ -99,6 +104,20 @@ public class Player_Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isBorning)
+        {
+            fade += Time.fixedDeltaTime;
+
+            if(fade >= 1f)
+            {
+                fade = 1f;
+                isBorning = false;
+                Shooting.charBorn = true;
+            }
+
+            material.SetFloat("_Fade", fade);
+        }
+
         // Yatay ve dikey giriþleri alýr
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
