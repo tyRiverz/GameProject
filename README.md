@@ -3,7 +3,7 @@
 
 | Project Started | Last Update | Version |
 | :-------------- | :---------- | :------ |
-| 26-Dec-2022     | 25-Jan-2023 | v0.4    |
+| 26-Dec-2022     | 29-Jan-2023 | v0.4    |
 
 # Table of Contents
 - [Game Project](#GameProject)
