@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b208476522fda324ab99e1caf1d76c6f, type: 3}
   m_Name: ItemGear
   m_EditorClassIdentifier: 
-  lootSprite: {fileID: 21300000, guid: dc17bf857063069429cdfe27ead79385, type: 3}
+  lootSprite: {fileID: -793021555, guid: 98d6d79a2c2b5fa4fbdaf82847512836, type: 3}
   lootName: ItemGear
   dropChance: 50
+  animation: {fileID: 0}

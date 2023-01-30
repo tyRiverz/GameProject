@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemCollector : MonoBehaviour
 {
-    public int ItemGear = 0;    
+    public int ItemGear = 0;
     private ScoreManager sm;
     private Player_Movement p_movement;
     private SidekickAI sidekick;
@@ -29,11 +29,12 @@ public class ItemCollector : MonoBehaviour
                 sm.countGear += 1f;
             }
             else if (lootName.Contains("ItemHp"))
-            {                
+            {
                 int hp = Random.Range(20, 40);
                 p_movement.TakeHp(hp);
-                sidekick.TakeHp(hp);
-                
+                if (sidekick)
+                    sidekick.TakeHp(hp);
+
             }
             else if (lootName.Contains("ItemShield"))
             {
@@ -42,7 +43,8 @@ public class ItemCollector : MonoBehaviour
                 //Debug.Log("Player Shield activated");
                 //Debug.Log("Sidekick Shield activated");
                 p_movement.ShieldCountdown(10);
-                sidekick.ShieldCountdown(10);
+                if (sidekick)
+                    sidekick.ShieldCountdown(10);
             }
 
             Destroy(collision.gameObject);

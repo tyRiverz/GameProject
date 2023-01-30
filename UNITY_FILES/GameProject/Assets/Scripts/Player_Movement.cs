@@ -22,16 +22,22 @@ public class Player_Movement : MonoBehaviour
 
     private DeathMenu dm;
 
-    Material material;
+    Material materialPlayer;
+    Material materialShield;
+    GameObject shield;
     bool isBorning = true;
+    bool ShieldGrown = false;
     float fade = 0f;
+    float fadeShield = 0f;
 
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.setMaxHealth(maxHealth);
         dm = GameObject.Find("Canvas").GetComponent<DeathMenu>();
-        material = GetComponent<SpriteRenderer>().material;
+        materialPlayer = GetComponent<SpriteRenderer>().material;
+        materialShield = GameObject.Find("ShieldZone").GetComponent<SpriteRenderer>().material;
+        shield = GameObject.Find("ShieldZone");
     }
 
     public void ShieldCountdown(float time)
@@ -115,7 +121,33 @@ public class Player_Movement : MonoBehaviour
                 Shooting.charBorn = true;
             }
 
-            material.SetFloat("_Fade", fade);
+            materialPlayer.SetFloat("_Fade", fade);
+        }
+
+        if (ShieldActive)
+        {
+            if(ShieldGrown == false)
+            {
+                shield.SetActive(true);
+                
+                fadeShield += Time.fixedDeltaTime;
+
+                if (fadeShield >= 1f)
+                {
+                    fadeShield = 1f;                    
+                }
+                materialShield.SetFloat("_Fade", fadeShield);
+                if(fadeShield == 1f)
+                {
+                    ShieldGrown = true;
+                }
+            }
+        }
+        else
+        {
+            shield.SetActive(false);
+            ShieldGrown = false;
+            fadeShield = 0f;
         }
 
         // Yatay ve dikey giriþleri alýr
