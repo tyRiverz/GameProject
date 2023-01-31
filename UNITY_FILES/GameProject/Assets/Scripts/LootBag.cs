@@ -42,16 +42,17 @@ public class LootBag : MonoBehaviour
 
         if(droppedItem != null)
         {
+            droppeditemPrefab.name = droppedItem.lootName;
             GameObject lootGameObject = Instantiate(droppeditemPrefab, spawnPoint, Quaternion.identity);
             lootGameObject.GetComponent<SpriteRenderer>().sprite = droppedItem.lootSprite;
-            droppeditemPrefab.name = droppedItem.lootName;  
+
             // Belirli süre içerisinde loot alýnmazsa yok et
             Destroy(lootGameObject, 10f);
 
 
             float dropForce = 30f;
             Vector2 dropDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-            lootGameObject.GetComponent<Rigidbody2D>().AddForce(dropDirection * dropForce, ForceMode2D.Impulse);
+            lootGameObject.GetComponent<Rigidbody2D>().AddForce(dropDirection * dropForce, ForceMode2D.Impulse);            
         }
     }    
 }

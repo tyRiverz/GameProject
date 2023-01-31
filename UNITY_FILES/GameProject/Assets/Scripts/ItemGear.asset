@@ -15,4 +15,3 @@ MonoBehaviour:
   lootSprite: {fileID: -793021555, guid: 98d6d79a2c2b5fa4fbdaf82847512836, type: 3}
   lootName: ItemGear
   dropChance: 50
-  animation: {fileID: 0}

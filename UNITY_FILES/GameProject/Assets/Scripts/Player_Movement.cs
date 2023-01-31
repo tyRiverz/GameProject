@@ -38,6 +38,8 @@ public class Player_Movement : MonoBehaviour
         materialPlayer = GetComponent<SpriteRenderer>().material;
         materialShield = GameObject.Find("ShieldZone").GetComponent<SpriteRenderer>().material;
         shield = GameObject.Find("ShieldZone");
+        shield.SetActive(false);
+
     }
 
     public void ShieldCountdown(float time)
@@ -126,6 +128,7 @@ public class Player_Movement : MonoBehaviour
 
         if (ShieldActive)
         {
+            //Debug.Log("Shield shader girdi");
             if(ShieldGrown == false)
             {
                 shield.SetActive(true);
@@ -137,6 +140,7 @@ public class Player_Movement : MonoBehaviour
                     fadeShield = 1f;                    
                 }
                 materialShield.SetFloat("_Fade", fadeShield);
+
                 if(fadeShield == 1f)
                 {
                     ShieldGrown = true;
@@ -145,9 +149,29 @@ public class Player_Movement : MonoBehaviour
         }
         else
         {
-            shield.SetActive(false);
-            ShieldGrown = false;
-            fadeShield = 0f;
+            if (shield)
+            {
+                //shield.SetActive(false);
+                //ShieldGrown = false;
+                //fadeShield = 0f;
+                if (fadeShield > 0f)
+                {
+                    fadeShield -= Time.fixedDeltaTime;
+
+                    if (fadeShield <= 0f)
+                    {
+                        fadeShield = 0f;
+                    }
+                    materialShield.SetFloat("_Fade", fadeShield);
+
+                    if (fadeShield == 0f)
+                    {
+                        shield.SetActive(false);
+                        ShieldGrown = false;
+                    }
+                }
+            }
+
         }
 
         // Yatay ve dikey giriþleri alýr

@@ -21,14 +21,14 @@ public class ItemCollector : MonoBehaviour
         if (collision.gameObject.CompareTag("Item"))
         {
 
-            string lootName = collision.gameObject.name;
+            string lootName = collision.gameObject.name;            
 
-            if (lootName.Contains("ItemGear"))
+            if (lootName.Contains("Gear"))
             {
                 ItemGear++;
                 sm.countGear += 1f;
             }
-            else if (lootName.Contains("ItemHp"))
+            else if (lootName.Contains("Hp"))
             {
                 int hp = Random.Range(20, 40);
                 p_movement.TakeHp(hp);
@@ -36,9 +36,10 @@ public class ItemCollector : MonoBehaviour
                     sidekick.TakeHp(hp);
 
             }
-            else if (lootName.Contains("ItemShield"))
+            else if (lootName.Contains("Shield"))
             {
                 p_movement.ShieldActive = true;
+                //Debug.Log("Shield Active mi: " + p_movement.ShieldActive.ToString());
                 sidekick.ShieldActive = true;
                 //Debug.Log("Player Shield activated");
                 //Debug.Log("Sidekick Shield activated");

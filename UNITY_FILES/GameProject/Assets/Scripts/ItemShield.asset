@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b208476522fda324ab99e1caf1d76c6f, type: 3}
   m_Name: ItemShield
   m_EditorClassIdentifier: 
-  lootSprite: {fileID: -2413806693520163455, guid: 57c6728047fe626458d1383c3fd73a71, type: 3}
+  lootSprite: {fileID: 21300000, guid: d92288c3867f2e3418291a6e3d68615c, type: 3}
   lootName: ItemShield
   dropChance: 30
