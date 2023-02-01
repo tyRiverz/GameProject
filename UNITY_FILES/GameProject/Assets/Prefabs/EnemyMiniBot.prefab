@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 998027488668320751}
   - component: {fileID: 8355780281804802084}
   - component: {fileID: 92781686225233582}
+  - component: {fileID: -1262823645758995146}
   m_Layer: 7
   m_Name: EnemyMiniBot
   m_TagString: Enemy
@@ -254,6 +255,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cfb6ea6603942ef47b4c0abad270684a, type: 2}
   - {fileID: 11400000, guid: 8d88827354dd454499b5bb1db91fb914, type: 2}
   - {fileID: 11400000, guid: bc4b44791e612384887b43cabb63df3d, type: 2}
+--- !u!114 &-1262823645758995146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4480526135623168182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfda618cc434964fb83a6886c53d1a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Offset: {x: 0, y: -0.2, z: 0}
+  material: {fileID: 2100000, guid: 9a7b6aca7e2c809439259d2e9e6e1c04, type: 2}
 --- !u!1 &8422390058977465403
 GameObject:
   m_ObjectHideFlags: 0
