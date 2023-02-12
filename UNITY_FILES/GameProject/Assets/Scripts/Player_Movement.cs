@@ -45,13 +45,13 @@ public class Player_Movement : MonoBehaviour
     public void ShieldCountdown(float time)
     {
         // Belirli süre kalkaný aç
-        if(coroutine!= null)
+        if (coroutine != null)
         {
             StopCoroutine(coroutine);
 
         }
         coroutine = StartCoroutine(ExecuteAfterTime(time));
-        
+
     }
 
     IEnumerator ExecuteAfterTime(float time)
@@ -106,7 +106,7 @@ public class Player_Movement : MonoBehaviour
 
             rb.AddForce(force, ForceMode2D.Impulse);
 
-            
+
         }
     }
 
@@ -116,7 +116,7 @@ public class Player_Movement : MonoBehaviour
         {
             fade += Time.fixedDeltaTime;
 
-            if(fade >= 1f)
+            if (fade >= 1f)
             {
                 fade = 1f;
                 isBorning = false;
@@ -129,19 +129,19 @@ public class Player_Movement : MonoBehaviour
         if (ShieldActive)
         {
             //Debug.Log("Shield shader girdi");
-            if(ShieldGrown == false)
+            if (ShieldGrown == false)
             {
                 shield.SetActive(true);
-                
+
                 fadeShield += Time.fixedDeltaTime;
 
                 if (fadeShield >= 1f)
                 {
-                    fadeShield = 1f;                    
+                    fadeShield = 1f;
                 }
                 materialShield.SetFloat("_Fade", fadeShield);
 
-                if(fadeShield == 1f)
+                if (fadeShield == 1f)
                 {
                     ShieldGrown = true;
                 }
@@ -176,21 +176,44 @@ public class Player_Movement : MonoBehaviour
 
         // Yatay ve dikey giriþleri alýr
         horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
-
+        //verticalInput = Input.GetAxis("Vertical");
+        
         // Giriþler vektöre dönüþtürülür, büyüklüðü hesaplanýr, normalize edilir
-        movement = new Vector2(horizontalInput, verticalInput);
-        float inputMagnitude = Mathf.Clamp01(movement.magnitude);
-        movement.Normalize();
+
+        transform.Rotate(0, 0, -10*horizontalInput);
+
+        if (Input.GetKey("up"))
+        {
+            movement = transform.up;
+            float inputMagnitude = Mathf.Clamp01(movement.magnitude);
+            movement.Normalize();
+            transform.Translate(movement * moveSpeed * inputMagnitude * Time.fixedDeltaTime, Space.World);
+        }
+        else if (Input.GetKey("down"))
+        {
+            movement = -transform.up;
+            float inputMagnitude = Mathf.Clamp01(movement.magnitude);
+            movement.Normalize();
+            transform.Translate(movement * moveSpeed * inputMagnitude * Time.fixedDeltaTime, Space.World);
+        }
+        //else
+        //{
+        //    movement = new Vector2(0, 0);
+        //}
+
+        //movement = new Vector2(horizontalInput, verticalInput);
+
+        //float inputMagnitude = Mathf.Clamp01(movement.magnitude);
+        //movement.Normalize();
 
         // Objeye hazýrlanan vektör kadar hareket kazandýrýlýr
-        transform.Translate(movement * moveSpeed * inputMagnitude * Time.fixedDeltaTime, Space.World);
+        //transform.Translate(movement * moveSpeed * inputMagnitude * Time.fixedDeltaTime, Space.World);
 
-        // Objenin hareket ettiði yöne doðru bakmasý saðlanýr
-        if (movement != Vector2.zero)
-        {
-            Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, movement);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime);
-        }
+        //Objenin hareket ettiði yöne doðru bakmasý saðlanýr
+        //if (movement != Vector2.zero)
+        //{
+        //    Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, movement);
+        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime);
+        //}
     }
 }

@@ -6,6 +6,8 @@ public class SpawnPoint : MonoBehaviour
 {
     private int waveNumber = 0;
     public int enemiesAmount = 0;
+    private int enemiesToSpawn = 0;
+    private int enemyConstant = 3;
     public GameObject enemy;
     public List<GameObject> enemies = new List<GameObject>();
     public Camera cam;
@@ -34,6 +36,7 @@ public class SpawnPoint : MonoBehaviour
         if (enemiesAmount == 0)
         {
             waveNumber++;
+            enemiesToSpawn = enemyConstant * waveNumber;
 
             if (waveNumber % 5 == 0)
             {
@@ -41,7 +44,7 @@ public class SpawnPoint : MonoBehaviour
             }
             else
             {
-                for (int i = 0; i < waveNumber; i++)
+                for (int i = 0; i < enemiesToSpawn; i++)
                 {
                     SpawnEnemy();
                 }

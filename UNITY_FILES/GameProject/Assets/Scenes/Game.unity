@@ -21418,6 +21418,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1569373481}
+    - target: {fileID: 8719145810293831009, guid: 4ae3028cb75d8a847bcddb0a6fcf0a7e, type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8719145810293831021, guid: 4ae3028cb75d8a847bcddb0a6fcf0a7e, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -21478,9 +21482,25 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6044055498121140833, guid: 172827dff8136ea46a6235255a8e7386, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6044055498121140833, guid: 172827dff8136ea46a6235255a8e7386, type: 3}
+      propertyPath: m_LinearDrag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6044055498121140833, guid: 172827dff8136ea46a6235255a8e7386, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 6044055498121140890, guid: 172827dff8136ea46a6235255a8e7386, type: 3}
       propertyPath: m_Name
       value: Sidekick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6044055498121140890, guid: 172827dff8136ea46a6235255a8e7386, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6044055498121140892, guid: 172827dff8136ea46a6235255a8e7386, type: 3}
       propertyPath: m_RootOrder
@@ -21535,6 +21555,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: a4b918c93fcdd234782ac668b925f0d4, type: 2}
     - target: {fileID: 6044055498121140895, guid: 172827dff8136ea46a6235255a8e7386, type: 3}
+      propertyPath: speed
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6044055498121140895, guid: 172827dff8136ea46a6235255a8e7386, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 3670806022066814101}
@@ -21542,6 +21566,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 417703861}
+    - target: {fileID: 6044055498121140895, guid: 172827dff8136ea46a6235255a8e7386, type: 3}
+      propertyPath: nextWaypointDistance
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 172827dff8136ea46a6235255a8e7386, type: 3}

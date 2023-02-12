@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
         if (gameObject.name.Contains("EnemyBoss"))
         {
             Destroy(gameObject);
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
 
             um = GameObject.Find("Canvas").GetComponent<UpgradeMenu>();
             if (!(UpgradeMenu.SpeedMaxed && UpgradeMenu.TypeMaxed && UpgradeMenu.PowerMaxed))
@@ -54,6 +55,7 @@ public class Enemy : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
         }
     }
 }
