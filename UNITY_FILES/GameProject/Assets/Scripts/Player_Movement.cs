@@ -184,14 +184,14 @@ public class Player_Movement : MonoBehaviour
 
         if (Input.GetKey("up"))
         {
-            movement = transform.up;
+            movement = transform.right;
             float inputMagnitude = Mathf.Clamp01(movement.magnitude);
             movement.Normalize();
             transform.Translate(movement * moveSpeed * inputMagnitude * Time.fixedDeltaTime, Space.World);
         }
         else if (Input.GetKey("down"))
         {
-            movement = -transform.up;
+            movement = -transform.right;
             float inputMagnitude = Mathf.Clamp01(movement.magnitude);
             movement.Normalize();
             transform.Translate(movement * moveSpeed * inputMagnitude * Time.fixedDeltaTime, Space.World);
