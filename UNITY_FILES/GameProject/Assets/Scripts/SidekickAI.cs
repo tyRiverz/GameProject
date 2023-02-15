@@ -35,7 +35,7 @@ public class SidekickAI : MonoBehaviour
     void Start()
     {
         Camera cam = Camera.main;
-        cameraHeight = (cam.orthographicSize+1)*.80f;
+        cameraHeight = (cam.orthographicSize+1)*.70f;
 
         currentHealth = maxHealth;
         healthBar.setMaxHealth(maxHealth);

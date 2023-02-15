@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathEffect: {fileID: 1898657281334336819, guid: 117cd575534459043b5415014ca17a2d, type: 3}
   healthBar: {fileID: 8422390059030211929}
-  maxHealth: 100
+  maxHealth: 50
   currentHealth: 0
 --- !u!114 &5781929391499796620
 MonoBehaviour:
@@ -198,7 +198,7 @@ MonoBehaviour:
   radius: 0.66
   height: 2
   canMove: 1
-  maxSpeed: 2
+  maxSpeed: 3
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2

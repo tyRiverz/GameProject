@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootSprite: {fileID: 21300000, guid: b273c8d8b00611240ba168ff7767019f, type: 3}
   lootName: ItemHp
-  dropChance: 100
+  dropChance: 10

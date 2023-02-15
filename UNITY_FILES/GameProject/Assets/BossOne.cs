@@ -1,31 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class BossOne : MonoBehaviour
 {
-
     public GameObject deathEffect;
-    private SpawnPoint sp; 
     private ScoreManager sm;
 
     public HealthBar healthBar;
-    public int maxHealth = 100;
+    public int maxHealth = 500;
     public int currentHealth;
 
     private UpgradeMenu um;
 
-    private bool firstDeploy = false;
-    private bool secondDeploy = false;
 
-    //private SpawnPoint sp = new SpawnPoint();
+    private int waveNumber = 0;
+    public int enemiesAmount = 0;
+    private int enemiesToSpawn = 0;
+    private int enemyConstant = 3;    
+    public List<GameObject> enemies = new List<GameObject>();    
+
+
     public void Start()
-    {
+    {        
+        enemiesAmount = 0;
         currentHealth = maxHealth;
         healthBar.setMaxHealth(maxHealth);
         sm = GameObject.Find("Canvas").GetComponent<ScoreManager>();
-        sp = GameObject.Find("SpawnPoint").GetComponent<SpawnPoint>();
     }
     public void TakeDamage(int damage)
     {
@@ -66,36 +67,35 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Update()
+    void SpawnEnemy()
     {
-        if (gameObject.name.Contains("EnemyBoss"))
+
+        // Düþman objesi üretilir
+        //GameObject a = Instantiate(enemy) as GameObject;        
+        
+        GameObject a = Instantiate(enemies[0]) as GameObject;
+
+        // Üretilen düþmanýn pozisyonu kameranýn gördüðü sýnýrlar içerisinden rastgele bir noktada seçilir
+        a.transform.position = new Vector3(gameObject.transform.position.x , gameObject.transform.position.y , 0);
+
+    }
+
+    void Update()
+    {        
+
+        if(currentHealth <= 400)
         {
-            if(currentHealth <= 400)
+            for(int i = 0; i < 5; i++)
             {
-                if(firstDeploy == false)
-                {
-                    firstDeploy= true;
-                    for (int i = 0; i < 5; i++)
-                    {
-                        GameObject a = Instantiate(sp.enemies[0]) as GameObject;
-                        a.transform.position = gameObject.transform.position + new Vector3(i,0,0);
-                    }
-                }
-                
+                SpawnEnemy();
             }
-            if(currentHealth <= 200)
+        }
+        else if (currentHealth <= 200)
+        {
+            for (int i = 0; i < 5; i++)
             {
-                if(secondDeploy == false)
-                {
-                    secondDeploy= true;
-                    for (int i = 0; i < 5; i++)
-                    {
-                        GameObject a = Instantiate(sp.enemies[0]) as GameObject;
-                        a.transform.position = gameObject.transform.position + new Vector3(i, 0, 0);
-                    }
-                }
-                
+                SpawnEnemy();
             }
-        }    
+        }
     }
 }
