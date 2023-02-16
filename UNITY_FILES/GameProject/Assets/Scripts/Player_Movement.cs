@@ -151,11 +151,11 @@ public class Player_Movement : MonoBehaviour
         {
             if (shield)
             {
-                //shield.SetActive(false);
-                //ShieldGrown = false;
-                //fadeShield = 0f;
+                
                 if (fadeShield > 0f)
                 {
+                    ShieldGrown = false;
+
                     fadeShield -= Time.fixedDeltaTime;
 
                     if (fadeShield <= 0f)
@@ -167,7 +167,6 @@ public class Player_Movement : MonoBehaviour
                     if (fadeShield == 0f)
                     {
                         shield.SetActive(false);
-                        ShieldGrown = false;
                     }
                 }
             }

@@ -21406,10 +21406,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7657729552027875638, guid: 4ae3028cb75d8a847bcddb0a6fcf0a7e, type: 3}
-      propertyPath: Offset.y
-      value: -0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 8719145810293831008, guid: 4ae3028cb75d8a847bcddb0a6fcf0a7e, type: 3}
       propertyPath: m_Name
       value: Player
@@ -21488,11 +21484,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6044055498121140833, guid: 172827dff8136ea46a6235255a8e7386, type: 3}
       propertyPath: m_LinearDrag
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6044055498121140833, guid: 172827dff8136ea46a6235255a8e7386, type: 3}
       propertyPath: m_AngularDrag
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6044055498121140890, guid: 172827dff8136ea46a6235255a8e7386, type: 3}
       propertyPath: m_Name

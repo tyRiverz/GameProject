@@ -284,6 +284,7 @@ GameObject:
   - component: {fileID: 4007724968037905588}
   - component: {fileID: 4007724968037905589}
   - component: {fileID: 4007724968037905590}
+  - component: {fileID: 1875884760419872065}
   m_Layer: 7
   m_Name: EnemyTank
   m_TagString: Enemy
@@ -348,7 +349,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 282793745, guid: 703125b507059f24ab3be45f1e96c2bf, type: 3}
   m_Color: {r: 0.39678088, g: 0.7169812, b: 0.022997461, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -375,8 +376,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.6666667, y: 2.6666667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -505,6 +506,26 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cfb6ea6603942ef47b4c0abad270684a, type: 2}
   - {fileID: 11400000, guid: 8d88827354dd454499b5bb1db91fb914, type: 2}
   - {fileID: 11400000, guid: bc4b44791e612384887b43cabb63df3d, type: 2}
+--- !u!95 &1875884760419872065
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4007724968037905591}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6056e69a17b576640a710a9c048fb881, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4007724968443498299
 GameObject:
   m_ObjectHideFlags: 0
