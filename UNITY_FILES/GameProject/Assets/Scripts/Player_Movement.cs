@@ -32,6 +32,7 @@ public class Player_Movement : MonoBehaviour
 
     void Start()
     {
+        FindObjectOfType<AudioManager>().Play("Ambience");
         currentHealth = maxHealth;
         healthBar.setMaxHealth(maxHealth);
         dm = GameObject.Find("Canvas").GetComponent<DeathMenu>();
