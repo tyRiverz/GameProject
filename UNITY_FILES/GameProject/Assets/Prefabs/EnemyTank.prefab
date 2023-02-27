@@ -278,6 +278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4007724968037905583}
   - component: {fileID: 4007724968037905584}
+  - component: {fileID: -8060854925059113863}
   - component: {fileID: 4007724968037905585}
   - component: {fileID: 4007724968037905586}
   - component: {fileID: 4007724968037905587}
@@ -306,7 +307,7 @@ Transform:
   m_Children:
   - {fileID: 4007724967202757056}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4007724968037905584
 SpriteRenderer:
@@ -350,7 +351,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 20
   m_Sprite: {fileID: 282793745, guid: 703125b507059f24ab3be45f1e96c2bf, type: 3}
-  m_Color: {r: 0.39678088, g: 0.7169812, b: 0.022997461, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -360,6 +361,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &-8060854925059113863
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4007724968037905591}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!60 &4007724968037905585
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -385,9 +407,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0.5773587}
-      - {x: -0.5, y: -0.28866667}
-      - {x: 0.5, y: -0.28866667}
+    - - {x: 0.007643819, y: 0.15695208}
+      - {x: -1.0802094, y: -0.08988975}
+      - {x: -1.256732, y: -0.51033556}
+      - {x: -1.0329245, y: -1.0081136}
+      - {x: 1.0274882, y: -0.9868722}
+      - {x: 1.1864405, y: -0.7318305}
+      - {x: 1.1726506, y: -0.2351604}
   m_UseDelaunayMesh: 0
 --- !u!114 &4007724968037905586
 MonoBehaviour:
