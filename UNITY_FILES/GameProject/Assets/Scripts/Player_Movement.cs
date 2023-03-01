@@ -28,11 +28,11 @@ public class Player_Movement : MonoBehaviour
     bool isBorning = true;
     bool ShieldGrown = false;
     float fade = 0f;
-    float fadeShield = 0f;
+    float fadeShield = 0f;    
 
     void Start()
     {
-        FindObjectOfType<AudioManager>().Play("Ambience");
+        //FindObjectOfType<AudioManager>().Play("Ambience");        
         currentHealth = maxHealth;
         healthBar.setMaxHealth(maxHealth);
         dm = GameObject.Find("Canvas").GetComponent<DeathMenu>();
@@ -172,7 +172,7 @@ public class Player_Movement : MonoBehaviour
                 }
             }
 
-        }
+        }        
 
         // Yatay ve dikey giriþleri alýr
         horizontalInput = Input.GetAxis("Horizontal");
