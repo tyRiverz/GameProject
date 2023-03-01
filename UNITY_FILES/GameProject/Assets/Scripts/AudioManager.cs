@@ -62,7 +62,7 @@ public class AudioManager : MonoBehaviour
 
 
         soundNumber++;
-       if(soundNumber >= sounds.Length)
+       if(soundNumber >= 5)
         {
             soundNumber = 1;
         }

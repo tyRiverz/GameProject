@@ -38,6 +38,7 @@ public class ItemCollector : MonoBehaviour
             }
             else if (lootName.Contains("Shield"))
             {
+                FindObjectOfType<SFXManager>().Play("Shield");
                 p_movement.ShieldActive = true;
                 //Debug.Log("Shield Active mi: " + p_movement.ShieldActive.ToString());
                 sidekick.ShieldActive = true;

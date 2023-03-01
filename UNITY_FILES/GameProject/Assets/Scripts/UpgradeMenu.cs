@@ -78,7 +78,7 @@ public class UpgradeMenu : MonoBehaviour
                 PowerButton.GetComponent<Button>().interactable = false;
                 SpeedButton.GetComponent<Button>().interactable = false;
                 TypeButton.GetComponent<Button>().interactable = false;
-
+                FindObjectOfType<SFXManager>().Play("Upgrade");
             }
             else
             {
@@ -106,7 +106,7 @@ public class UpgradeMenu : MonoBehaviour
                 PowerButton.GetComponent<Button>().interactable = false;
                 SpeedButton.GetComponent<Button>().interactable = false;
                 TypeButton.GetComponent<Button>().interactable = false;
-
+                FindObjectOfType<SFXManager>().Play("Upgrade");
             }
             else
             {
@@ -133,7 +133,7 @@ public class UpgradeMenu : MonoBehaviour
                 PowerButton.GetComponent<Button>().interactable = false;
                 SpeedButton.GetComponent<Button>().interactable = false;
                 TypeButton.GetComponent<Button>().interactable = false;
-
+                FindObjectOfType<SFXManager>().Play("Upgrade");
             }
             else
             {

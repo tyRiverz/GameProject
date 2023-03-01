@@ -182,14 +182,14 @@ public class Player_Movement : MonoBehaviour
 
         transform.Rotate(0, 0, -10*horizontalInput);
 
-        if (Input.GetKey("up"))
+        if (Input.GetKey("up") || Input.GetKey(KeyCode.W))
         {
             movement = transform.right;
             float inputMagnitude = Mathf.Clamp01(movement.magnitude);
             movement.Normalize();
             transform.Translate(movement * moveSpeed * inputMagnitude * Time.fixedDeltaTime, Space.World);
         }
-        else if (Input.GetKey("down"))
+        else if (Input.GetKey("down") || Input.GetKey(KeyCode.S))
         {
             movement = -transform.right;
             float inputMagnitude = Mathf.Clamp01(movement.magnitude);
