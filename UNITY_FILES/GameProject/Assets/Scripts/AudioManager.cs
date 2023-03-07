@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
     AudioSource myAudio;
     public static int soundNumber = 1;
+    public static bool isPlayerDead = false;
+    public static bool deathSound = false;
 
     void Awake()
     {
@@ -25,15 +27,22 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        
+        isPlayerDead = false;
+        deathSound = false;
         //Play("Theme");
     }
 
     void Update()
     {
-        if (!myAudio.isPlaying)
+        if (!myAudio.isPlaying && !isPlayerDead)
         {
             PlayByIndex(soundNumber);
+        }
+        if (isPlayerDead && !deathSound)
+        {
+            myAudio.Stop();
+            Play("AfterDeath");
+            deathSound = true;
         }
     }
 

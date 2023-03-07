@@ -80,6 +80,8 @@ public class Player_Movement : MonoBehaviour
 
     void Die()
     {
+        AudioManager.isPlayerDead = true;
+
         DeathMenu.GameIsPaused = true;
         dm.DeathMenuUI.SetActive(true);
         //TODO DeathEffect animasyon eklenecek

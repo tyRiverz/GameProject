@@ -41,6 +41,8 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        FindObjectOfType<SFXManager>().Play("Explode");
+
         GetComponent<LootBag>().InstantiateLoot(transform.position);
         //Instantiate(deathEffect, transform.position, Quaternion.identity);
         sm.score += 100f;

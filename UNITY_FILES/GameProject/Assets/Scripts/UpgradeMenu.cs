@@ -69,6 +69,8 @@ public class UpgradeMenu : MonoBehaviour
     {
         if (PowerLevel != maxPowerLevel)
         {
+            FindObjectOfType<SFXManager>().Play("Upgrade");
+
             Bullet.damage += 10;
             TextMeshProUGUI[] components = GameObject.Find("UpgradePowerButton").GetComponentsInChildren<TextMeshProUGUI>(true);
             PowerLevel++;
@@ -78,7 +80,6 @@ public class UpgradeMenu : MonoBehaviour
                 PowerButton.GetComponent<Button>().interactable = false;
                 SpeedButton.GetComponent<Button>().interactable = false;
                 TypeButton.GetComponent<Button>().interactable = false;
-                FindObjectOfType<SFXManager>().Play("Upgrade");
             }
             else
             {
@@ -97,6 +98,8 @@ public class UpgradeMenu : MonoBehaviour
     {
         if (SpeedLevel != maxSpeedLevel)
         {
+            FindObjectOfType<SFXManager>().Play("Upgrade");
+
             Shooting.fireDelay -= 100;
             TextMeshProUGUI[] components = GameObject.Find("UpgradeSpeedButton").GetComponentsInChildren<TextMeshProUGUI>(true);
             SpeedLevel++;
@@ -106,7 +109,6 @@ public class UpgradeMenu : MonoBehaviour
                 PowerButton.GetComponent<Button>().interactable = false;
                 SpeedButton.GetComponent<Button>().interactable = false;
                 TypeButton.GetComponent<Button>().interactable = false;
-                FindObjectOfType<SFXManager>().Play("Upgrade");
             }
             else
             {
@@ -124,7 +126,7 @@ public class UpgradeMenu : MonoBehaviour
     {
         if (TypeLevel != maxTypeLevel)
         {
-            
+            FindObjectOfType<SFXManager>().Play("Upgrade");
             TextMeshProUGUI[] components = GameObject.Find("UpgradeTypeButton").GetComponentsInChildren<TextMeshProUGUI>(true);
             TypeLevel++;
             if (TypeLevel != maxTypeLevel)
@@ -133,7 +135,7 @@ public class UpgradeMenu : MonoBehaviour
                 PowerButton.GetComponent<Button>().interactable = false;
                 SpeedButton.GetComponent<Button>().interactable = false;
                 TypeButton.GetComponent<Button>().interactable = false;
-                FindObjectOfType<SFXManager>().Play("Upgrade");
+                
             }
             else
             {

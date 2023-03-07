@@ -181,6 +181,8 @@ public class SidekickAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        gameObject.transform.rotation = GameObject.Find("Player").transform.rotation;
+
         if (onWork == false)
             ListTaggedObjects();
 
