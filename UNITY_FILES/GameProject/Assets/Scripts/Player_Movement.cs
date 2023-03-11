@@ -7,6 +7,7 @@ public class Player_Movement : MonoBehaviour
     public float moveSpeed = 5f;
     public float rotationSpeed = 720f;
     public Rigidbody2D rb;
+    public Rigidbody2D rbPlayer;
     Vector2 movement;
     public float horizontalInput = 0f;
     public float verticalInput = 0f;
@@ -98,7 +99,25 @@ public class Player_Movement : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    //public void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Enemy"))
+    //    {
+    //        TakeDamage(receivedDamage);
+
+    //        Vector2 direction = (rb.position - (Vector2)GameObject.FindWithTag("Enemy").transform.position).normalized;
+    //        Vector2 force = direction * hitForce * Time.deltaTime;
+
+    //        rb.AddForce(force, ForceMode2D.Impulse);
+    //    }
+    //    if (collision.gameObject.CompareTag("Wall"))
+    //    {
+    //        rb.velocity = Vector3.zero;
+    //        Debug.Log("Wall Collision");
+    //    }
+    //}
+
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
@@ -108,9 +127,12 @@ public class Player_Movement : MonoBehaviour
             Vector2 force = direction * hitForce * Time.deltaTime;
 
             rb.AddForce(force, ForceMode2D.Impulse);
-
-
         }
+        //if (collision.gameObject.CompareTag("Wall"))
+        //{
+        //    rb.velocity = Vector3.zero;
+        //    Debug.Log("Wall Collision");
+        //}
     }
 
     private void FixedUpdate()

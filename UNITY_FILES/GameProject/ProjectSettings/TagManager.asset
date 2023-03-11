@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Item
   - Enemy
+  - Wall
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - Enemy
   - Sidekick
   - Planet
-  - 
+  - Wall
   - 
   - 
   - 

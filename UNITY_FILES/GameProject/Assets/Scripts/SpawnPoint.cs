@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class SpawnPoint : MonoBehaviour
 {
@@ -13,6 +15,10 @@ public class SpawnPoint : MonoBehaviour
     public Camera cam;
     float height = 0f;
     float width = 0f;
+
+    public Tilemap tilemap = null;
+    List<Vector3> availablePlaces;    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +28,28 @@ public class SpawnPoint : MonoBehaviour
         // Kameranýn gördüðü sýnýrlar belirlenir
         height = cam.orthographicSize + 1;
         width = cam.orthographicSize * cam.aspect + 1;
+
+        //tilemap = GetComponent<Tilemap>();
+        availablePlaces = new List<Vector3>();
+
+        for (int n = tilemap.cellBounds.xMin; n < tilemap.cellBounds.xMax; n++)
+        {
+            for (int p = tilemap.cellBounds.yMin; p < tilemap.cellBounds.yMax; p++)
+            {
+                Vector3Int localPlace = new Vector3Int(n, p, (int)tilemap.transform.position.y);
+                Vector3 place = tilemap.CellToWorld(localPlace);
+                if (tilemap.HasTile(localPlace))
+                {
+                    //Tile at "place"
+                    availablePlaces.Add(place);
+                }
+                else
+                {
+                    //No tile at "place"
+                }
+            }
+        }
+        
     }
 
     // Update is called once per frame
@@ -66,24 +94,29 @@ public class SpawnPoint : MonoBehaviour
         // Üretilen düþmanýn pozisyonu kameranýn gördüðü sýnýrlar içerisinden rastgele bir noktada seçilir
         //a.transform.position = new Vector3(cam.transform.position.x + Random.Range(-width, width), cam.transform.position.y + Random.Range(-height, height), 0);
 
-        int division = Random.Range(0, 4);
+        int division = Random.Range(0, availablePlaces.Count);
 
-        if (division == 0)
-        {
-            a.transform.position = new Vector3(cam.transform.position.x + width, cam.transform.position.y + Random.Range(0, height), 0);
-        }
-        else if(division == 1)
-        {
-            a.transform.position = new Vector3(cam.transform.position.x + Random.Range(0, width), cam.transform.position.y + height, 0);
-        }
-        else if(division == 2)
-        {
-            a.transform.position = new Vector3(cam.transform.position.x + Random.Range(-width,0), cam.transform.position.y - height, 0);
-        }
-        else if(division == 3)
-        {
-            a.transform.position = new Vector3(cam.transform.position.x - width, cam.transform.position.y + Random.Range(-height,0), 0);
-        }
+        a.transform.position = availablePlaces[division];
+
+
+        //int division = Random.Range(0, 4);
+
+        //if (division == 0)
+        //{
+        //    a.transform.position = new Vector3(cam.transform.position.x + width, cam.transform.position.y + Random.Range(0, height), 0);
+        //}
+        //else if(division == 1)
+        //{
+        //    a.transform.position = new Vector3(cam.transform.position.x + Random.Range(0, width), cam.transform.position.y + height, 0);
+        //}
+        //else if(division == 2)
+        //{
+        //    a.transform.position = new Vector3(cam.transform.position.x + Random.Range(-width,0), cam.transform.position.y - height, 0);
+        //}
+        //else if(division == 3)
+        //{
+        //    a.transform.position = new Vector3(cam.transform.position.x - width, cam.transform.position.y + Random.Range(-height,0), 0);
+        //}
     }
 
     void SpawnBoss()
@@ -91,6 +124,12 @@ public class SpawnPoint : MonoBehaviour
         GameObject a = Instantiate(enemies[3]) as GameObject;
 
         // Üretilen düþmanýn pozisyonu kameranýn gördüðü sýnýrlar içerisinden rastgele bir noktada seçilir
-        a.transform.position = new Vector3(cam.transform.position.x + Random.Range(-width, width), cam.transform.position.y + Random.Range(-height, height), 0);
+        //a.transform.position = new Vector3(cam.transform.position.x + Random.Range(-width, width), cam.transform.position.y + Random.Range(-height, height), 0);
+
+        int division = Random.Range(0, availablePlaces.Count);
+
+        a.transform.position = availablePlaces[division];
     }
+
+
 }

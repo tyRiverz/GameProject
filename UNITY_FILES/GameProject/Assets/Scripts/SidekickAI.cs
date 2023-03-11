@@ -171,10 +171,8 @@ public class SidekickAI : MonoBehaviour
             Vector2 direction = (rb.position - (Vector2)GameObject.FindWithTag("Enemy").transform.position).normalized;
             Vector2 force = direction * hitForce * Time.deltaTime;
 
-            rb.AddForce(force, ForceMode2D.Impulse);
-
-            
-        }
+            rb.AddForce(force, ForceMode2D.Impulse);            
+        }        
     }
 
 

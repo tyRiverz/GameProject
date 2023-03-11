@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
     {
         // Merminin çarptýðý obje kontrol edilir, eðer düþmansa düþman hasar alýr
         Enemy enemy = hitInfo.GetComponent<Enemy>();
-        if (hitInfo.name != "Player" && hitInfo.name != "Sidekick" && hitInfo.name != "Bullet(Clone)")
+        if (hitInfo.name != "Player" && hitInfo.name != "Sidekick" && hitInfo.name != "Bullet(Clone)" && hitInfo.name != "LootPrefab")
         {
             if (enemy != null)
             {
