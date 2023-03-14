@@ -29,7 +29,7 @@ public class SpawnPoint : MonoBehaviour
         height = cam.orthographicSize + 1;
         width = cam.orthographicSize * cam.aspect + 1;
 
-        //tilemap = GetComponent<Tilemap>();
+        
         availablePlaces = new List<Vector3>();
 
         for (int n = tilemap.cellBounds.xMin; n < tilemap.cellBounds.xMax; n++)
